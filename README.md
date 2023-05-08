@@ -1,0 +1,17 @@
+Download Link: https://assignmentchef.com/product/solved-solvedcis276-lab-8-using-sql-server-2012
+<br>
+ValidateCustID 1. DROP, CREATE, and test of the procedure, ValidateCustID, that validates the entered Custid against the current Custids in the CUSTOMERS table.ValidateOrderID2. DROP, CREATE, and test of the procedure, ValidateOrderID, that validates the entered Orderid against the current OrderIDs in the ORDERS table for the entered CustID.
+
+ValidatePartID3. DROP, CREATE, and test of the procedure, ValidatePartID, that validates the entered Partid against the current Partids in the INVENTORY table.
+
+ValidateQty4. DROP, CREATE, and test of the procedure, ValidateQty, that validates the entered Qty is greater than zero.
+
+InventoryUpdateTrg5. DROP, CREATE, and test of the UPDATE trigger on INVENTORY table.Checks value for updated StockQty and includes error handling
+
+OrderitemsInsertTrg6. DROP, CREATE, and test of the INSERT trigger on ORDERITEMS table. Performs the INVENTORY UPDATE and includes error handling
+
+GetNewDetail7. DROP, CREATE, and test of the procedure, GetNewDetail, that determines the Detail value for new line item. (SQL Server will not allow you to assign a column value to the newly inserted row inside of the trigger).You can handle NULL within the projection or it can be done in two steps(SELECT and then test). It is important to deal with the possibility of NULLbecause Detail is part of the primary key and therefore cannot contain NULL.
+
+AddLineItem8. DROP and CREATE of the procedure that does the transaction processing, AddLineItem. Before the transaction does a COMMIT or ROLLBACK, print a statement that says the transaction is committed or rolled back.This procedure calls GetNewDetail procedure and, with successful return,performs an INSERT to the ORDERITEMS table which in turn performs an UPDATE to the INVENTORY table. Error handling determines COMMIT/ROLLBACK.
+
+Lab8proc9. DROP and CREATE of the procedure, Lab8proc, that receives the Custid, Orderid, Partid, and Qty as input parameters and essentially brings all the other parts together: 1. Print a statement that Lab8proc begins. 2. EXECUTE the Custid validation procedure and print a line giving the input Custid and a statement that it is valid or invalid. 3. EXECUTE the Orderid validation procedure and print a line giving the input Orderid value and a statement that it is valid or invalid. Print another line stating the Orderid and Custid values are valid together or not. 4. EXECUTE the Partid validation procedure and print a line giving the input Partid value and a statement that it is valid or invalid. 5. EXECUTE the Qty validation procedure and print a line giving the input Qty value and a statement that it is valid or invalid. 6. If all is good, print a message stating that Lab8proc validations were good so the transaction continues and then EXECUTE the add line item procedure; otherwise print a message stating that Lab8proc is ending the transaction and do not run the add line item procedure.This is a stored procedure that accepts the 4 pieces of input: Custid, Orderid, Partid, and Qty (in that order please). Lab8proc will validate all the data and do the transaction processing by calling the previously written and tested modules.Testing of Lab8proc10. Testing of Lab8proc (similar to the testing you did previously for the Oracle labs 6 and 7). Please use different data for your tests.
